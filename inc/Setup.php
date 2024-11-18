@@ -10,17 +10,17 @@ class Setup {
 	}
 
 	public function init(): void {
-		if ( \MyPlugin\Plugin\Dep::validate( $this->get_deps() ) ) {
+		if ( \MyPlugin\Dep::validate( $this->get_deps() ) ) {
 			return;
 		}
 
-		load_plugin_textdomain( KEY, false, \MyPlugin\Plugin\Fs::get_path( 'lang' ) );
+		load_plugin_textdomain( KEY, false, \MyPlugin\Fs::get_path( 'lang' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_assets' ) );
 	}
 
 	public function enqueue_assets(): void {
-		\MyPlugin\Plugin\Asset::enqueue_style( 'main' );
-		\MyPlugin\Plugin\Asset::enqueue_script( 'main' );
+		\MyPlugin\Asset::enqueue_style( 'main' );
+		\MyPlugin\Asset::enqueue_script( 'main' );
 	}
 
 	protected function get_deps(): array {
