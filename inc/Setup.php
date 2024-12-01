@@ -1,8 +1,6 @@
 <?php
 namespace MyWcAddon;
 
-use Exception;
-
 defined( 'ABSPATH' ) || exit;
 
 class Setup {
