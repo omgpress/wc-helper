@@ -18,20 +18,10 @@ class Setup {
 		if ( Dep::validate( $this->get_deps() ) ) {
 			return;
 		}
-
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_assets' ) );
 	}
 
 	public function load_textdomain(): void {
 		load_plugin_textdomain( KEY, false, Fs::get_path( 'lang' ) );
-	}
-
-	/**
-	 * @throws Exception
-	 */
-	public function enqueue_assets(): void {
-		Asset::enqueue_style( 'main' );
-		Asset::enqueue_script( 'main' );
 	}
 
 	protected function get_deps(): array {
