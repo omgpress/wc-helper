@@ -5,10 +5,10 @@ defined( 'ABSPATH' ) || exit;
 
 class Setup {
 	public function __construct() {
+		WC\OrderStorage::declare_order_storage_compatibility();
 		new Activation();
 		new Deactivation();
 		new Admin();
-		WC\OrderStorage::declare_order_storage_compatibility();
 
 		add_action( 'plugins_loaded', array( $this, 'init' ) );
 		add_action( 'init', array( $this, 'load_textdomain' ) );
