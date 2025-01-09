@@ -5,7 +5,7 @@ defined( 'ABSPATH' ) || exit;
 
 class Setup {
 	public function __construct() {
-		WC\OrderStorage::declare_order_storage_compatibility();
+		WC\OrderStorage::declare_compatibility();
 		new Activation();
 		new Deactivation();
 		new Admin();

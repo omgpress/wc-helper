@@ -6,8 +6,8 @@ use const MyWcAddon\ROOT_FILE;
 defined( 'ABSPATH' ) || exit;
 
 class OrderStorage {
-	public static function declare_order_storage_compatibility() {
-		if ( class_exists( 'Automattic\WooCommerce\Utilities\FeaturesUtil' ) ) {
+	public static function declare_compatibility() {
+		if ( class_exists( '\Automattic\WooCommerce\Utilities\FeaturesUtil' ) ) {
 			return;
 		}
 
@@ -17,5 +17,10 @@ class OrderStorage {
 				\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', ROOT_FILE, true );
 			}
 		);
+	}
+
+	public static function is_enabled(): bool {
+		return class_exists( '\Automattic\WooCommerce\Utilities\OrderUtil' ) &&
+			\Automattic\WooCommerce\Utilities\OrderUtil::custom_orders_table_usage_is_enabled();
 	}
 }
