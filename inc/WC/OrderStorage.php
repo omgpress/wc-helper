@@ -6,7 +6,7 @@ use const MyWcAddon\ROOT_FILE;
 defined( 'ABSPATH' ) || exit;
 
 class OrderStorage {
-	public static function declare_compatibility() {
+	public static function declare_compatibility(): void {
 		if ( class_exists( '\Automattic\WooCommerce\Utilities\FeaturesUtil' ) ) {
 			return;
 		}
