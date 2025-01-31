@@ -4,7 +4,7 @@
  * Plugin URI: https://wordpress.org
  * Description: The WooCommerce Add-On
  * Version: 1.0.0
- * Text Domain: my_wc_addon
+ * Text Domain: my-wc-addon
  * Author: Developer
  * Author URI: https://wordpress.org
  * Requires PHP: 7.2.0

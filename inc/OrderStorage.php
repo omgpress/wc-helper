@@ -1,5 +1,5 @@
 <?php
-namespace MyWcAddon\WC;
+namespace MyWcAddon;
 
 use const MyWcAddon\ROOT_FILE;
 
