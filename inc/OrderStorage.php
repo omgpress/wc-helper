@@ -1,8 +1,6 @@
 <?php
 namespace MyWcAddon;
 
-use const MyWcAddon\ROOT_FILE;
-
 defined( 'ABSPATH' ) || exit;
 
 class OrderStorage {
