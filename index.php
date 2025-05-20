@@ -7,7 +7,7 @@
  * Text Domain: my-wc-addon
  * Author: Developer
  * Author URI: https://wordpress.org
- * Requires PHP: 7.2.0
+ * Requires PHP: 7.4.0
  * Requires at least: 5.0.0
  */
 namespace MyWcAddon;
