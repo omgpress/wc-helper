@@ -1,15 +1,15 @@
 {
-  "name": "wc/addon",
+  "name": "omgpress/omgwoo",
   "version": "1.0.0",
   "type": "wordpress-plugin",
   "description": "",
-  "homepage": "https://wp.local",
+  "homepage": "https://omgpress.com",
   "license": "GPL-2.0-or-later",
   "authors": [
     {
-      "name": "developer",
-      "email": "developer@wp.local",
-      "homepage": "https://wp.local"
+      "name": "OmgPress",
+      "email": "hello@omgpress.com",
+      "homepage": "https://omgpress.com"
     }
   ],
   "keywords": [
@@ -24,7 +24,7 @@
   },
   "autoload": {
     "psr-4": {
-      "MyWcAddon\\": "inc/"
+      "OmgWoo\\": "includes/"
     }
   },
   "require": {

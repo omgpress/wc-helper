@@ -1,16 +1,16 @@
 <?php
 /**
- * Plugin Name: My WC Add-On
- * Plugin URI: https://wordpress.org
+ * Plugin Name: OmgPress WooCommerce Add-On
+ * Plugin URI: https://omgpress.com
  * Description: The WooCommerce Add-On
  * Version: 1.0.0
- * Text Domain: my-wc-addon
+ * Text Domain: omgwoo
  * Author: Developer
- * Author URI: https://wordpress.org
+ * Author URI: https://omgpress.com
  * Requires PHP: 7.4.0
  * Requires at least: 5.0.0
  */
-namespace MyWcAddon;
+namespace OmgWoo;
 
 use Exception;
 

@@ -1,5 +1,5 @@
 <?php
-namespace MyWcAddon;
+namespace OmgWoo;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -17,7 +17,7 @@ class Setup {
 	public function init(): void {
 		Requirement::add(
 			'WooCommerce',
-			__( 'WooCommerce', 'my-wc-addon' )
+			__( 'WooCommerce', 'omgwoo' )
 		);
 
 		if ( Requirement::validate() ) {
@@ -26,7 +26,7 @@ class Setup {
 	}
 
 	public function load_textdomain(): void {
-		load_plugin_textdomain( 'my-wc-addon', false, Fs::get_path( 'lang' ) );
+		load_plugin_textdomain( 'omgwoo', false, Fs::get_path( 'lang' ) );
 	}
 
 	public static function get_plugin_name(): ?string {

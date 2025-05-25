@@ -1,5 +1,5 @@
 <?php
-namespace MyWcAddon;
+namespace OmgWoo;
 
 defined( 'ABSPATH' ) || exit;
 
