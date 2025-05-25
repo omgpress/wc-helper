@@ -6,15 +6,21 @@ use Exception;
 defined( 'ABSPATH' ) || exit;
 
 class Asset {
-	protected const ASSET_DIR  = 'asset';
-	protected const SCRIPT_DIR = 'script';
-	protected const STYLE_DIR  = 'style';
+	protected const ASSET_DIR  = 'assets';
+	protected const SCRIPT_DIR = 'scripts';
+	protected const STYLE_DIR  = 'styles';
 	protected const POSTFIX    = '.min';
 
 	/**
 	 * @throws Exception
 	 */
-	public static function enqueue_script( string $name, array $deps = array(), array $args = array(), bool $in_footer = true, ?string $args_object_name = null ): void {
+	public static function enqueue_script(
+		string $name,
+		array $deps = array(),
+		array $args = array(),
+		bool $in_footer = true,
+		?string $args_object_name = null
+	): void {
 		$key      = static::get_key( $name );
 		$filename = $name . static::POSTFIX . '.js';
 		$rel      = static::ASSET_DIR . '/' . static::SCRIPT_DIR . '/' . $filename;
@@ -22,13 +28,13 @@ class Asset {
 		$path     = Fs::get_path( $rel );
 
 		if ( ! file_exists( $path ) ) {
-			throw new Exception( "The \"$path\" script asset file does not exist" );
+			throw new Exception( esc_html( "The \"$path\" script asset file does not exist" ) );
 		}
 
 		wp_enqueue_script( $key, $url, $deps, filemtime( $path ), $in_footer );
 
 		if ( $args ) {
-			wp_localize_script( $key, $args_object_name ?: $key, $args );
+			wp_localize_script( $key, is_string( $args_object_name ) ? $args_object_name : $key, $args );
 		}
 	}
 
@@ -37,9 +43,10 @@ class Asset {
 	}
 
 	/**
+	 * @param string|array|null $addition
 	 * @throws Exception
 	 */
-	public static function enqueue_style( string $name, array $deps = array(), /* ?string|?array */ $addition = null ): void { // phpcs:ignore
+	public static function enqueue_style( string $name, array $deps = array(), $addition = null ): void {
 		$key      = static::get_key( $name );
 		$filename = $name . static::POSTFIX . '.css';
 		$rel      = static::ASSET_DIR . '/' . static::STYLE_DIR . '/' . $filename;
@@ -47,7 +54,7 @@ class Asset {
 		$path     = Fs::get_path( $rel );
 
 		if ( ! file_exists( $path ) ) {
-			throw new Exception( "The \"$path\" style asset file does not exist" );
+			throw new Exception( esc_html( "The \"$path\" style asset file does not exist" ) );
 		}
 
 		wp_enqueue_style( $key, $url, $deps, filemtime( $path ) );
