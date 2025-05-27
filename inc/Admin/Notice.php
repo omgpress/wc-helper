@@ -1,7 +1,7 @@
 <?php
-namespace OmgWoo\Admin;
+namespace StarterWooAddon\Admin;
 
-use const OmgWoo\KEY;
+use const StarterWooAddon\KEY;
 
 defined( 'ABSPATH' ) || exit;
 

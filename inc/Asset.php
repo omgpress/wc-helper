@@ -1,5 +1,5 @@
 <?php
-namespace OmgWoo;
+namespace StarterWooAddon;
 
 use Exception;
 

@@ -1,9 +1,9 @@
 {
-  "name": "omgpress/omgwoo",
+  "name": "omgpress/starter-woo-addon",
   "version": "1.0.0",
   "type": "wordpress-plugin",
-  "description": "",
-  "homepage": "https://omgpress.com",
+  "description": "The WooCommerce Add-On",
+  "homepage": "https://omgpress.com/starter?type=plugin",
   "license": "GPL-2.0-or-later",
   "authors": [
     {
@@ -24,7 +24,7 @@
   },
   "autoload": {
     "psr-4": {
-      "OmgWoo\\": "inc/"
+      "StarterWooAddon\\": "inc/"
     }
   },
   "require": {

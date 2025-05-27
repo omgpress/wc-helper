@@ -1,22 +1,22 @@
 <?php
 /**
- * Plugin Name: OmgPress WooCommerce Add-On
- * Plugin URI: https://omgpress.com
+ * Plugin Name: Starter WooCommerce Add-On
+ * Plugin URI: https://omgpress.com/starter?type=plugin
  * Description: The WooCommerce Add-On
  * Version: 1.0.0
- * Text Domain: omgwoo
- * Author: Developer
+ * Text Domain: starter-woo-addon
+ * Author: OmgPress
  * Author URI: https://omgpress.com
  * Requires PHP: 7.4.0
  * Requires at least: 5.0.0
  */
-namespace OmgWoo;
+namespace StarterWooAddon;
 
 use Exception;
 
 defined( 'ABSPATH' ) || exit;
 
-const KEY       = 'my_wc_addon';
+const KEY       = 'starter_woo_addon';
 const ROOT_FILE = __FILE__;
 
 $autoload = __DIR__ . '/vendor/autoload.php';

@@ -1,7 +1,7 @@
-=== My WC Add-On ===
+=== Starter WooCommerce Add-On ===
 
 Stable tag: 1.0.0
-Contributors: developer
+Contributors: OmgPress
 Requires PHP: 7.2.0
 Requires at least: 5.0.0
 Tested up to: 5.0.0

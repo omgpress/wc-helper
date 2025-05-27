@@ -1,5 +1,5 @@
 <?php
-namespace OmgWoo;
+namespace StarterWooAddon;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -29,8 +29,8 @@ class Requirement {
 		}
 
 		$message = 1 < count( static::$requirements ) ?
-			__( '%1$s requires the following plugins: %2$s.', 'my-wc-addon' ) :
-			__( '%1$s requires the %2$s plugin.', 'my-wc-addon' );
+			__( '%1$s requires the following plugins: %2$s.', 'starter-woo-addon' ) :
+			__( '%1$s requires the %2$s plugin.', 'starter-woo-addon' );
 		$message = sprintf( $message, $plugin_name, $missing_requirements );
 
 		Admin\Notice::render( $message, 'error' );
