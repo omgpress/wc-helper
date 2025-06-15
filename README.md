@@ -1,2 +1,6 @@
-# WooCommerce Starter Add-On
-This repository contains implementations of WooCommerce support for the [Starter Plugin](https://github.com/omgpress/starter-plugin). Don't build your plugin based on this repository as a template, use it only to copy the necessary implementations into your plugin built on [Starter Plugin](https://github.com/omgpress/starter-plugin).
+# OmgWoo
+
+Library for developing WooCommerce extensions
+
+## License
+AcfBlockAutoloader is free software, and is released under the terms of the GPL (GNU General Public License) version 2 or (at your option) any later version. See [LICENSE](https://github.com/omgpress/omgwoo/blob/main/license.txt).

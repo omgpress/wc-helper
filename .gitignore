@@ -4,6 +4,8 @@ release
 vendor
 .DS_Store
 .env
-auth.json
+.env.bak
 ehthumbs.db
 Thumbs.db
+tmp
+.phpunit.result.cache
