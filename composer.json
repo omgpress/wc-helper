@@ -24,7 +24,7 @@
   },
   "autoload": {
     "psr-4": {
-      "StarterWooAddon\\": "inc/"
+      "OmgWoo\\": "inc/"
     }
   },
   "require": {
