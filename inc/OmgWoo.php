@@ -9,7 +9,13 @@ class OmgWoo {
 	protected OrderStorage $order_storage;
 
 	public function __construct( string $root_file, Dependency $dependency ) {
-		$dependency->require_plugin( 'woocommerce', 'WooCommerce', 'woocommerce/woocommerce.php' );
+		$dependency->require_plugin(
+			'woocommerce',
+			'WooCommerce',
+			'woocommerce/woocommerce.php',
+			false,
+			'https://downloads.wordpress.org/plugin/woocommerce.zip'
+		);
 
 		$this->order_storage = new OrderStorage( $root_file );
 	}

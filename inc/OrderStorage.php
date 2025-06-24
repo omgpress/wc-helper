@@ -11,9 +11,11 @@ class OrderStorage {
 
 	public function __construct( string $root_file ) {
 		$this->root_file = $root_file;
+
+		$this->declare_compatibility();
 	}
 
-	public function declare_compatibility(): void {
+	protected function declare_compatibility(): void {
 		if ( ! class_exists( '\Automattic\WooCommerce\Utilities\FeaturesUtil' ) ) {
 			return;
 		}
