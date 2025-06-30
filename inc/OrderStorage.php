@@ -3,11 +3,11 @@ namespace OmgWoo;
 
 use Automattic\WooCommerce\Utilities\FeaturesUtil;
 use Automattic\WooCommerce\Utilities\OrderUtil;
-use OmgCore\Feature;
+use OmgCore\OmgFeature;
 
 defined( 'ABSPATH' ) || exit;
 
-class OrderStorage extends Feature {
+class OrderStorage extends OmgFeature {
 	protected string $root_file;
 
 	public function __construct( string $root_file ) {

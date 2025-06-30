@@ -2,11 +2,11 @@
 namespace OmgWoo;
 
 use OmgCore\Dependency;
-use OmgCore\Feature;
+use OmgCore\OmgFeature;
 
 defined( 'ABSPATH' ) || exit;
 
-class OmgWoo extends Feature {
+class OmgWoo extends OmgFeature {
 	protected OrderStorage $order_storage;
 
 	public function __construct( string $root_file, Dependency $dependency ) {
