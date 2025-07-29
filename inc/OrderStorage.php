@@ -1,5 +1,5 @@
 <?php
-namespace OmgWoo;
+namespace OmgWooCommerceHelper;
 
 use Automattic\WooCommerce\Utilities\FeaturesUtil;
 use Automattic\WooCommerce\Utilities\OrderUtil;

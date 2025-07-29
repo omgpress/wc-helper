@@ -1,12 +1,12 @@
 <?php
-namespace OmgWoo;
+namespace OmgWooCommerceHelper;
 
 use OmgCore\Dependency;
 use OmgCore\OmgFeature;
 
 defined( 'ABSPATH' ) || exit;
 
-class OmgWoo extends OmgFeature {
+class WoocommerceHelper extends OmgFeature {
 	protected OrderStorage $order_storage;
 
 	public function __construct( string $root_file, Dependency $dependency ) {

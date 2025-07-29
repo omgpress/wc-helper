@@ -1,9 +1,9 @@
 {
-  "name": "omgpress/omgwoo",
-  "version": "0.1.1",
+  "name": "omgpress/woocommerce-helper",
+  "version": "0.1.0",
   "type": "wordpress-library",
   "description": "Library for developing WooCommerce extensions",
-  "homepage": "https://omgpress.com/omgwoo",
+  "homepage": "https://omgpress.com/woocommerce-helper",
   "license": "GPL-2.0-or-later",
   "authors": [
     {
@@ -13,7 +13,8 @@
     }
   ],
   "keywords": [
-    "wordpress"
+    "wordpress",
+    "woocommerce"
   ],
   "config": {
     "platform-check": false,
@@ -24,7 +25,7 @@
   },
   "autoload": {
     "psr-4": {
-      "OmgWoo\\": "inc/"
+      "OmgWooCommerceHelper\\": "inc/"
     }
   },
   "require": {
