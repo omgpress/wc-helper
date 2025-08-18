@@ -1,5 +1,5 @@
 <?php
-namespace OmgWooCommerceHelper;
+namespace OmgWcHelper;
 
 use Exception;
 use OmgCore\Dependency;
@@ -7,11 +7,11 @@ use OmgCore\OmgFeature;
 
 defined( 'ABSPATH' ) || exit;
 
-class WoocommerceHelper extends OmgFeature {
+class WcHelper extends OmgFeature {
 	protected OrderStorage $order_storage;
 
 	/**
-	 * WoocommerceHelper constructor.
+	 * WcHelper constructor.
 	 *
 	 * @param string $root_file The root file of the plugin or theme.
 	 * @param Dependency $dependency The dependency manager instance.
