@@ -1,6 +1,8 @@
 <?php
 namespace OmgWcHelper;
 
+use Automattic\WooCommerce\Utilities\FeaturesUtil;
+use Automattic\WooCommerce\Utilities\OrderUtil;
 use Exception;
 use OmgCore\Dependency;
 use OmgCore\OmgFeature;
@@ -8,8 +10,6 @@ use OmgCore\OmgFeature;
 defined( 'ABSPATH' ) || exit;
 
 class WcHelper extends OmgFeature {
-	protected OrderStorage $order_storage;
-
 	/**
 	 * WcHelper constructor.
 	 *
@@ -21,6 +21,8 @@ class WcHelper extends OmgFeature {
 	public function __construct( string $root_file, Dependency $dependency ) {
 		parent::__construct();
 
+		$this->root_file = $root_file;
+
 		$dependency->require_plugin(
 			'woocommerce',
 			'WooCommerce',
@@ -28,18 +30,35 @@ class WcHelper extends OmgFeature {
 			false,
 			'https://downloads.wordpress.org/plugin/woocommerce.zip'
 		);
-
-		$this->order_storage = new OrderStorage( $root_file );
+		$this->declare_order_storage_compatibility();
 	}
 
+	protected string $root_file;
+
 	/**
-	 * Get the OrderStorage instance.
+	 * Check if the custom orders table feature is enabled.
 	 *
-	 * Note: This library requires that your plugin or theme have HPOS compatible code.
-	 *
-	 * @return OrderStorage
+	 * @return bool True if the custom orders table feature is enabled, false otherwise.
 	 */
-	public function order_storage(): OrderStorage {
-		return $this->order_storage;
+	public function is_order_storage_enabled(): bool {
+		return class_exists( '\Automattic\WooCommerce\Utilities\OrderUtil' ) &&
+			OrderUtil::custom_orders_table_usage_is_enabled();
+	}
+
+	protected function declare_order_storage_compatibility(): void {
+		if ( ! class_exists( '\Automattic\WooCommerce\Utilities\FeaturesUtil' ) ) {
+			return;
+		}
+
+		add_action(
+			'before_woocommerce_init',
+			function (): void {
+				FeaturesUtil::declare_compatibility(
+					'custom_order_tables',
+					$this->root_file,
+					true
+				);
+			}
+		);
 	}
 }
