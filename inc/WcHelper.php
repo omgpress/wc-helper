@@ -19,18 +19,21 @@ class WcHelper extends OmgFeature {
 	 */
 	public function __construct( OmgApp $app ) {
 		parent::__construct( $app );
-
-		$app->dependency()->require_plugin(
-			'woocommerce',
-			'WooCommerce',
-			'woocommerce/woocommerce.php',
-			false,
-			'https://downloads.wordpress.org/plugin/woocommerce.zip'
-		);
+		add_action( 'init', $this->init() );
 		$this->declare_order_storage_compatibility();
 	}
 
-	protected string $root_file;
+	protected function init(): callable {
+		return function (): void {
+			$this->app->dependency()->require_plugin(
+				'woocommerce',
+				'WooCommerce',
+				'woocommerce/woocommerce.php',
+				false,
+				'https://downloads.wordpress.org/plugin/woocommerce.zip'
+			);
+		};
+	}
 
 	/**
 	 * Check if the custom orders table feature is enabled.
