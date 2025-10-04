@@ -1,6 +1,6 @@
 {
   "name": "omgpress/wc-helper",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "type": "wordpress-library",
   "description": "Library for developing WooCommerce extensions",
   "homepage": "https://omgpress.com/wc-helper",
