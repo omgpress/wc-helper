@@ -4,28 +4,35 @@ namespace OmgWcHelper;
 use Automattic\WooCommerce\Utilities\FeaturesUtil;
 use Automattic\WooCommerce\Utilities\OrderUtil;
 use Exception;
-use OmgCore\OmgFeature;
-use OmgCore\OmgApp;
+use OmgCore\Dependency;
+use OmgCore\Feature;
 
 defined( 'ABSPATH' ) || exit;
 
-class WcHelper extends OmgFeature {
+class WcHelper extends Feature {
+	protected string $root_file;
+	protected Dependency $dependency;
+
 	/**
 	 * WcHelper constructor.
 	 *
-	 * @param OmgApp $app The application instance.
+	 * @param string $root_file The root file of the plugin or theme.
 	 *
 	 * @throws Exception
 	 */
-	public function __construct( OmgApp $app ) {
-		parent::__construct( $app );
+	public function __construct( string $root_file, Dependency $dependency ) {
+		parent::__construct();
+
+		$this->root_file  = $root_file;
+		$this->dependency = $dependency;
+
 		add_action( 'init', $this->init() );
 		$this->declare_order_storage_compatibility();
 	}
 
 	protected function init(): callable {
 		return function (): void {
-			$this->app->dependency()->require_plugin(
+			$this->dependency->require_plugin(
 				'woocommerce',
 				'WooCommerce',
 				'woocommerce/woocommerce.php',
@@ -55,7 +62,7 @@ class WcHelper extends OmgFeature {
 			function (): void {
 				FeaturesUtil::declare_compatibility(
 					'custom_order_tables',
-					$this->app->get_root_file(),
+					$this->root_file,
 					true
 				);
 			}
